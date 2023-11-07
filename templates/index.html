@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+    <title>
+        Test form
+    </title>
+</head>
+<body>
+    <table>
+        {% if data %}
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>MAIL</th>
+            </tr>
+            {% for rec in data %}
+                <tr>
+                    <td>{{rec.id}}</td>
+                    <td>{{rec.name}}</td>
+                    <td>{{rec.mail}}</td>
+                    <td>
+                        <a href="/delete/{{rec.id}}" type="button">Delete</a>
+                    </td>
+                    <td>
+                        <a href="/update/{{rec.id}}" type="button">Edit</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+    </table>
+    <table>
+        {% if users %}
+            <tr>
+                <th>ID</th>
+                <th>User Name</th>
+                <th>Password</th>
+            </tr>
+            {% for user in users %}
+                <tr>
+                    <td>{{user.id}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.password}}</td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+    </table>
+    <form action="{{url_for('insertion')}}" method="POST">
+        <input type="text" name="name">
+        <input type="text" name="mail">
+        <input type="submit">
+    </form>
+    <a href="{{url_for('register_user')}}" >Add User</a>   
+    <a href="{{url_for('logout')}}" >Logout</a>   
+</body>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<head>
+    <title>
+        Update form
+    </title>
+</head>
+<body>
+<form action="/update/{{data.id}}" method="POST">
+    <input type="text" name="name" value="{{data.name}}">
+    <input type="text" name="mail" value="{{data.mail}}">
+    <input type="submit">
+</form>
+</body>
